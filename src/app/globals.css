@@ -7,7 +7,11 @@
 html, body { height: 100%; }
 
 body {
-  @apply bg-zinc-50 text-zinc-950;
+  @apply bg-zinc-50 text-zinc-950 antialiased;
 }
 
-a { @apply text-blue-600 hover:text-blue-700; }
+* { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+::selection { background: rgba(59,130,246,0.18); }
+
+a { text-decoration: none; }

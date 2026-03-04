@@ -13,16 +13,33 @@ const LINKS = {
 
 export function Shell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-zinc-50">
       <div className="flex min-h-screen">
+        <aside className="w-72 shrink-0 border-r border-zinc-200/70 bg-white">
+          <div className="px-5 py-5">
+            <div className="flex items-center gap-3">
+              <img src="/logo.png" alt="GNT Security" className="h-8 w-auto" />
+              <div className="leading-tight">
+                <div className="text-sm font-semibold text-zinc-900">GNT Security</div>
+                <div className="text-xs text-zinc-500">Staff Portal</div>
+              </div>
+            </div>
+          </div>
 
-        <aside className="w-64 shrink-0 border-r border-zinc-200 bg-white">
-          <nav className="px-3 py-6">
+          <nav className="px-3 pb-6">
+            <div className="mb-2 px-3 text-[11px] font-semibold uppercase tracking-wider text-zinc-500">
+              Operations
+            </div>
+
             <NavLink href="/dashboard" label="Dashboard" />
             <NavLink href="/alerts" label="Alerts" />
             <NavLink href="/devices" label="Devices" />
 
-            <div className="mt-4 border-t border-zinc-200 pt-4">
+            <div className="mt-5 border-t border-zinc-200/70 pt-5">
+              <div className="mb-2 px-3 text-[11px] font-semibold uppercase tracking-wider text-zinc-500">
+                Tools
+              </div>
+
               <ExternalLink href={LINKS.ticketing} label="Ticket System" />
               <ExternalLink href={LINKS.insurance} label="Insurance Certificate" />
               <ExternalLink href={LINKS.crowdstrike} label="CrowdStrike Falcon" />
@@ -33,33 +50,23 @@ export function Shell({ children }: { children: React.ReactNode }) {
         </aside>
 
         <main className="flex-1">
-          <header className="border-b border-zinc-200 bg-white">
+          <header className="sticky top-0 z-40 border-b border-zinc-200/70 bg-white/75 backdrop-blur supports-[backdrop-filter]:bg-white/60">
             <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-
               <div className="flex items-center gap-3">
-                <img
-                  src="/logo.png"
-                  alt="GNT Security"
-                  className="h-8 w-auto"
-                />
-                <span className="text-sm font-semibold text-zinc-900">
-                  Staff Portal
-                </span>
+                <div className="h-2 w-2 rounded-full bg-emerald-500" />
+                <div className="text-sm font-semibold text-zinc-900">Operations Console</div>
+                <div className="text-xs text-zinc-500">Live monitoring and staff tools</div>
               </div>
 
-              <div className="flex items-center gap-4">
-                <div className="text-sm font-medium">Operations</div>
+              <div className="flex items-center gap-3">
                 <Suspense fallback={<div className="text-xs text-zinc-500">...</div>}>
                   <PublicConfigBadge />
                 </Suspense>
               </div>
-
             </div>
           </header>
 
-          <div className="mx-auto max-w-7xl px-6 py-6">
-            {children}
-          </div>
+          <div className="mx-auto max-w-7xl px-6 py-8">{children}</div>
         </main>
       </div>
     </div>
@@ -70,9 +77,10 @@ function NavLink({ href, label }: { href: string; label: string }) {
   return (
     <Link
       href={href}
-      className="block rounded-lg px-3 py-2 text-sm font-medium text-zinc-800 hover:bg-zinc-100"
+      className="group flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-medium text-zinc-800 transition hover:bg-zinc-100 hover:text-zinc-950"
     >
-      {label}
+      <span>{label}</span>
+      <span className="h-1.5 w-1.5 rounded-full bg-transparent transition group-hover:bg-zinc-300" />
     </Link>
   );
 }
@@ -83,9 +91,10 @@ function ExternalLink({ href, label }: { href: string; label: string }) {
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="block rounded-lg px-3 py-2 text-sm font-medium text-zinc-800 hover:bg-zinc-100"
+      className="group flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-medium text-zinc-800 transition hover:bg-zinc-100 hover:text-zinc-950"
     >
-      {label}
+      <span>{label}</span>
+      <span className="text-xs text-zinc-400 transition group-hover:text-zinc-600">↗</span>
     </a>
   );
 }

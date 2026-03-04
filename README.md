@@ -16,5 +16,3 @@ Cf-Access-Authenticated-User-Name
 
 Do not set DEV\_USER\_EMAIL in production.
 
-GOLIVE
-

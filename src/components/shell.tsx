@@ -15,18 +15,9 @@ export function Shell({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen">
       <div className="flex min-h-screen">
-        <aside className="w-64 shrink-0 border-r border-zinc-200 bg-white">
-          <div className="px-5 py-5">
-            <div className="flex items-center gap-3">
-              <img src="/logo.png" alt="GNT Security" className="h-9 w-9 rounded-md" />
-              <div>
-                <div className="text-sm font-semibold tracking-tight">GNT Security</div>
-                <div className="text-xs text-zinc-600">Staff Portal</div>
-              </div>
-            </div>
-          </div>
 
-          <nav className="px-3 pb-6">
+        <aside className="w-64 shrink-0 border-r border-zinc-200 bg-white">
+          <nav className="px-3 py-6">
             <NavLink href="/dashboard" label="Dashboard" />
             <NavLink href="/alerts" label="Alerts" />
             <NavLink href="/devices" label="Devices" />
@@ -44,14 +35,31 @@ export function Shell({ children }: { children: React.ReactNode }) {
         <main className="flex-1">
           <header className="border-b border-zinc-200 bg-white">
             <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-              <div className="text-sm font-medium">Operations</div>
-              <Suspense fallback={<div className="text-xs text-zinc-500">...</div>}>
-                <PublicConfigBadge />
-              </Suspense>
+
+              <div className="flex items-center gap-3">
+                <img
+                  src="/logo.png"
+                  alt="GNT Security"
+                  className="h-8 w-auto"
+                />
+                <span className="text-sm font-semibold text-zinc-900">
+                  Staff Portal
+                </span>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="text-sm font-medium">Operations</div>
+                <Suspense fallback={<div className="text-xs text-zinc-500">...</div>}>
+                  <PublicConfigBadge />
+                </Suspense>
+              </div>
+
             </div>
           </header>
 
-          <div className="mx-auto max-w-7xl px-6 py-6">{children}</div>
+          <div className="mx-auto max-w-7xl px-6 py-6">
+            {children}
+          </div>
         </main>
       </div>
     </div>
@@ -60,7 +68,10 @@ export function Shell({ children }: { children: React.ReactNode }) {
 
 function NavLink({ href, label }: { href: string; label: string }) {
   return (
-    <Link href={href} className="block rounded-lg px-3 py-2 text-sm font-medium text-zinc-800 hover:bg-zinc-100">
+    <Link
+      href={href}
+      className="block rounded-lg px-3 py-2 text-sm font-medium text-zinc-800 hover:bg-zinc-100"
+    >
       {label}
     </Link>
   );
@@ -68,7 +79,12 @@ function NavLink({ href, label }: { href: string; label: string }) {
 
 function ExternalLink({ href, label }: { href: string; label: string }) {
   return (
-    <a href={href} target="_blank" rel="noreferrer" className="block rounded-lg px-3 py-2 text-sm font-medium text-zinc-800 hover:bg-zinc-100">
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className="block rounded-lg px-3 py-2 text-sm font-medium text-zinc-800 hover:bg-zinc-100"
+    >
       {label}
     </a>
   );

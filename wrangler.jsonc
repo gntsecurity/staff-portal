@@ -19,5 +19,11 @@
   ],
   "images": {
     "binding": "IMAGES"
-  }
+  },
+  "routes": [
+    {
+      "pattern": "staff.gntsecurity.com/*",
+      "zone_name": "gntsecurity.com"
+    }
+  ]
 }

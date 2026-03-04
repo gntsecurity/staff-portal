@@ -4,3 +4,8 @@
 .open-next
 .wrangler
 cloudflare-env.d.ts
+node_modules
+.next
+.open-next
+.dev.vars
+.env

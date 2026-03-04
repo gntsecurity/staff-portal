@@ -1,25 +1,39 @@
-import { UserBadge } from "@/components/user-badge";
-import { NinjaSummaryCards } from "@/components/ninja/summary-cards";
-import { NinjaAlertsTable } from "@/components/ninja/alerts-table";
-import { NinjaDevicesTable } from "@/components/ninja/devices-table";
+<div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
 
-export default function DashboardPage() {
-  return (
-    <div className="space-y-6">
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-semibold tracking-tight">Dashboard</h1>
-          <p className="text-sm text-zinc-600">Live NinjaOne overview.</p>
-        </div>
-        <UserBadge />
-      </div>
+  <a
+    href="https://portal.nextinsurance.com/public/certificates/live-certificate/8823c82c73b80325d7862fe322993035"
+    target="_blank"
+    className="bg-white p-4 rounded-xl shadow hover:shadow-md transition"
+  >
+    <div className="text-sm text-gray-500">Insurance</div>
+    <div className="font-semibold">Company Insurance</div>
+  </a>
 
-      <NinjaSummaryCards />
+  <a
+    href="https://falcon.crowdstrike.com/login/"
+    target="_blank"
+    className="bg-white p-4 rounded-xl shadow hover:shadow-md transition"
+  >
+    <div className="text-sm text-gray-500">Security</div>
+    <div className="font-semibold">CrowdStrike Falcon</div>
+  </a>
 
-      <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
-        <NinjaAlertsTable />
-        <NinjaDevicesTable />
-      </div>
-    </div>
-  );
-}
+  <a
+    href="https://login.gusto.com/"
+    target="_blank"
+    className="bg-white p-4 rounded-xl shadow hover:shadow-md transition"
+  >
+    <div className="text-sm text-gray-500">Payroll</div>
+    <div className="font-semibold">Gusto</div>
+  </a>
+
+  <a
+    href="https://gntsecurity.com"
+    target="_blank"
+    className="bg-white p-4 rounded-xl shadow hover:shadow-md transition"
+  >
+    <div className="text-sm text-gray-500">Company</div>
+    <div className="font-semibold">Main Website</div>
+  </a>
+
+</div>

@@ -2,23 +2,41 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { PublicConfigBadge } from "@/components/public-config-badge";
 
+const LINKS = {
+  ticketing: "https://gntsecurity.rmmservices.net/#/ticketing/board/4",
+  website: "https://gntsecurity.com",
+  insurance:
+    "https://portal.nextinsurance.com/public/certificates/live-certificate/8823c82c73b80325d7862fe322993035",
+  crowdstrike: "https://falcon.crowdstrike.com/login/",
+  gusto: "https://login.gusto.com/",
+};
+
 export function Shell({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen">
       <div className="flex min-h-screen">
         <aside className="w-64 shrink-0 border-r border-zinc-200 bg-white">
           <div className="px-5 py-5">
-            <div className="text-sm font-semibold tracking-tight">GNT Security</div>
-            <div className="text-xs text-zinc-600">Staff Portal</div>
+            <div className="flex items-center gap-3">
+              <img src="/logo.png" alt="GNT Security" className="h-9 w-9 rounded-md" />
+              <div>
+                <div className="text-sm font-semibold tracking-tight">GNT Security</div>
+                <div className="text-xs text-zinc-600">Staff Portal</div>
+              </div>
+            </div>
           </div>
 
           <nav className="px-3 pb-6">
             <NavLink href="/dashboard" label="Dashboard" />
             <NavLink href="/alerts" label="Alerts" />
             <NavLink href="/devices" label="Devices" />
+
             <div className="mt-4 border-t border-zinc-200 pt-4">
-              <ExternalLink href="https://gntsecurity.rmmservices.net/#/ticketing/board/4" label="Ticket System" />
-              <ExternalLink href="https://gntsecurity.com" label="Main Website" />
+              <ExternalLink href={LINKS.ticketing} label="Ticket System" />
+              <ExternalLink href={LINKS.insurance} label="Insurance Certificate" />
+              <ExternalLink href={LINKS.crowdstrike} label="CrowdStrike Falcon" />
+              <ExternalLink href={LINKS.gusto} label="Gusto Payroll" />
+              <ExternalLink href={LINKS.website} label="Main Website" />
             </div>
           </nav>
         </aside>
